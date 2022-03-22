@@ -44,7 +44,7 @@ const Projects: FC<ProjectsProps> = ({
         </div>
         <div className="site__section__tags has-color">
           <ul>
-            {item.tags.map(tag => <li>{ tag }</li>)}
+            {item.tags.map((tag, index) => <li key={`tag--${index}`}>{ tag }</li>)}
           </ul>
         </div>
       </div>
