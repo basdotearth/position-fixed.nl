@@ -1,6 +1,8 @@
 import { FC } from 'react';
 
-const Nav: FC<{}> = () => (
+const Nav: FC<{ onDarkModeToggle: VoidFunction }> = ({
+  onDarkModeToggle,
+}) => (
   <nav className="site__header__nav">
     <ul role="list">
       {/*
@@ -26,7 +28,7 @@ const Nav: FC<{}> = () => (
       ))
       */}
       <li>
-        <button id="darkMode">Dark Mode</button>
+        <button onClick={onDarkModeToggle}>Dark Mode</button>
       </li>
       <li>
         <a
