@@ -1,5 +1,6 @@
 import { FC, useEffect } from 'react';
 
+import useCustomColor from 'hooks/useCustomColor';
 import Nav from '../Nav';
 import style from './style.module.css';
 
@@ -25,9 +26,9 @@ const Header: FC<{}> = () => {
   }
 
   return <header className={style.header} id="header">
-    <div className={`${style['header__inner']} contain-width`}>
+    <div className={`${style.header__inner} contain-width`}>
       <Nav onDarkModeToggle={toggleDarkMode} />
-      <div className={`${style['header__logo']} has-color`}></div>
+      <div className={useCustomColor(style.header__logo)}></div>
     </div>
   </header>;
 };

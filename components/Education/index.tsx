@@ -2,13 +2,16 @@ import { FC, useContext } from 'react';
 
 import { dateSorting } from '../../support';
 import { ContentContext } from 'providers/content.provider';
+import useCustomColor from 'hooks/useCustomColor';
 
 import style from './style.module.css';
 
 const Education: FC<{}> = () => {
   const { education } = useContext(ContentContext);
   return <section className="site__section">
-    <h3 className="site__section__heading has-color">Education</h3>
+    <h3 className={useCustomColor('site__section__heading')}>
+      Education
+    </h3>
     <div className={style.education}>
       {education.sort(dateSorting).map((item, index) => { 
         const dateNotation: string[] = [

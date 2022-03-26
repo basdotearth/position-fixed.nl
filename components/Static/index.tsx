@@ -2,8 +2,9 @@ import { FC, useContext } from 'react';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { INLINES } from '@contentful/rich-text-types';
 
-import type { IStaticTextsFields } from '../../@types/generated/contentful';
 import { ContentContext } from 'providers/content.provider';
+import useCustomColor from 'hooks/useCustomColor';
+import type { IStaticTextsFields } from '../../@types/generated/contentful';
 
 import style from './style.module.css';
 
@@ -35,7 +36,7 @@ const Static: FC<StaticProps> = ({ text, title }) => {
 
   const { staticTexts } = useContext(ContentContext);
   return <section className="site__section">
-    { title && <h3 className="site__section__heading has-color">
+    { title && <h3 className={useCustomColor('site__section__heading')}>
       { title }
     </h3>}
     <div className={style['static-text']}>
