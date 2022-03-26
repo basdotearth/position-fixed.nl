@@ -4,10 +4,10 @@ import Education from '@components/Education';
 import Projects from '@components/Projects';
 import Static from '@components/Static';
 
-import styles from './style.module.css';
+import style from './style.module.css';
 
 const Home: FC<{}> = () => {
-  return <main className={`${styles.home} container`}>
+  return <main className={`${style.home} contain-width`}>
     <Static text="header-text" />
     <Projects title="Consultancy" filter="consultancy" />
     <Education />

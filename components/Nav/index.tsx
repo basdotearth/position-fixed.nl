@@ -1,9 +1,11 @@
 import { FC } from 'react';
 
+import style from './style.module.css';
+
 const Nav: FC<{ onDarkModeToggle: VoidFunction }> = ({
   onDarkModeToggle,
 }) => (
-  <nav className="site__header__nav">
+  <nav className={style.nav}>
     <ul role="list">
       {/*
 
@@ -32,7 +34,7 @@ const Nav: FC<{ onDarkModeToggle: VoidFunction }> = ({
       </li>
       <li>
         <a
-          className="button"
+          className={`${style.button} skip-link-styles`}
           role="button"
           href="/assets/Bas%20Klinkhamer%20-%20CV.pdf"
           download="Bas Klinkhamer - CV.pdf">

@@ -1,0 +1,31 @@
+.static-text ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0 0 0 1.5rem
+}
+
+.static-text ul > li {
+  position: relative
+}
+
+.static-text ul > li:before {
+  position: absolute;
+  left: -1.5rem;
+  display: inline-block;
+  content: "\025B8";
+  color: var(--grey)
+}
+
+.static-text ul > li > p {
+  margin: 0;
+}
+
+.static-text h1 + h4 {
+  margin-top: 0;
+}
+
+@media screen and (max-width:600px) {
+  .static-text h1 {
+    font-size: 2.441rem;
+  }
+}

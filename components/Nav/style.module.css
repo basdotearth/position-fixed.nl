@@ -1,0 +1,42 @@
+
+.nav {
+  position: absolute;
+  top: 0.5rem;
+  right: 0;
+}
+
+.nav ul {
+  list-style: none;
+}
+
+.nav li {
+  display: inline;
+  margin: 0 0 0 1rem;
+}
+
+.nav a {
+  color: var(--bg);
+}
+
+.nav button,
+.nav .button {
+  padding: 0.5rem;
+  border: 1px solid var(--bg);
+  background-color: var(--fg);
+  font-family: var(--font-body);
+  color: var(--bg);
+  text-decoration: none;
+  font-size: 0.8rem;
+  line-height: 0.8rem;
+  border-radius: 3px;
+  opacity: 0.6;
+  transition: opacity 200ms ease;
+}
+
+.nav .button:hover,
+.nav button:hover,
+.nav button:active {
+  opacity: 0.9;
+  transition: opacity 200ms ease;
+  cursor: pointer;
+}

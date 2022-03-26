@@ -2,8 +2,9 @@ import { FC, CSSProperties, useContext } from 'react';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
 import { dateSorting, shortDate } from '../../support';
-import type { IProjectFields } from '../../@types/generated/contentful';
 import { ContentContext } from 'providers/content.provider';
+
+import style from './style.module.css';
 
 interface CustomStyle extends CSSProperties {
   '--image': string;
@@ -29,12 +30,13 @@ const Projects: FC<ProjectsProps> = ({
         dateNotation.push('&mdash;', shortDate(item.end));
       }
 
-      return  <div className="site__section__content" key={`project--${index}`}>
-        <div className="site__section__meta has-color">
+      return  <div className={style.project} key={`project--${index}`}>
+        <div className={`${style.project__meta} has-color`}>
           { item.logo && 
           <div
-            className="site__section__image"
+            className={style.project__image}
             style={{'--image': `url('${item.logo?.fields.file.url}');`} as CustomStyle}>
+              {item.logo?.fields.file.url}
           </div>
           }
           <h5>{ item.company }</h5>
@@ -43,10 +45,10 @@ const Projects: FC<ProjectsProps> = ({
             <li>{ item.location }</li>
           </ul>
         </div>
-        <div className="site__section__description">
+        <div className={style.project__description}>
           {documentToReactComponents(item.description)}
         </div>
-        <div className="site__section__tags has-color">
+        <div className={`${style.project__tags} has-color`}>
           <ul>
             {item.tags.map((tag, index) => <li key={`tag--${index}`}>{ tag }</li>)}
           </ul>

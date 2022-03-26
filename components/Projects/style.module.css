@@ -1,0 +1,82 @@
+.project h5,
+.site__section__education h5 {
+  margin: 0 0 .2rem
+}
+
+.project ul {
+  position: relative;
+  margin: 0;
+  padding: 0 0 1rem;
+  display: block;
+  list-style: none;
+  font-size: .8rem;
+  line-height: 1.65rem
+}
+
+.project ul:after {
+  display: block;
+  position: absolute;
+  bottom: .5rem;
+  width: 1ch;
+  height: 2px;
+  background-color: var(--color, var(--blue));
+  content: ""
+}
+
+.project__meta {
+  grid-area: meta
+}
+
+.project__image {
+  grid-area: meta;
+  width: 80%;
+  height: 3rem;
+  margin: 0 0 0.5rem;
+  background-image: var(--image);
+  background-position: left center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.project__description {
+  margin: 0 0 2rem;
+  grid-area: description
+}
+
+.project__tags {
+  margin: 0 0 2rem;
+  grid-area: tags
+}
+
+.project__tags li:before {
+  margin: 0 .5rem 0 0;
+  display: inline-block;
+  content: "\00BB";
+  color: var(--grey)
+}
+
+
+@media screen and (min-width:961px) {
+  .project {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-rows: 1fr;
+    gap: var(--grid-gap) var(--grid-gap);
+    grid-template-areas: "meta description tags"
+  }
+
+  .project__meta {
+    margin: 0 0 2rem
+  }
+}
+
+@media screen and (max-width:960px) {
+  .project ul li {
+    display: inline-block;
+    padding: 0 .5rem 0 0
+  }
+
+  .project__meta ul:after {
+    display: none
+  }
+}

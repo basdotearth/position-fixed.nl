@@ -1,7 +1,7 @@
 .home {
   width: 100%;
   position: relative;
-  padding: 7.5rem 3.75rem;
+  padding: 0 3.75rem 7.5rem;
 }
 
 .home:before {

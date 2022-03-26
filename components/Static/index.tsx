@@ -5,6 +5,8 @@ import { INLINES } from '@contentful/rich-text-types';
 import type { IStaticTextsFields } from '../../@types/generated/contentful';
 import { ContentContext } from 'providers/content.provider';
 
+import style from './style.module.css';
+
 interface StaticProps {
   title?: string;
   text: string;
@@ -36,7 +38,9 @@ const Static: FC<StaticProps> = ({ text, title }) => {
     { title && <h3 className="site__section__heading has-color">
       { title }
     </h3>}
-    {printStaticText(staticTexts, text)}
+    <div className={style['static-text']}>
+      {printStaticText(staticTexts, text)}
+    </div>
   </section>
 };
 

@@ -1,7 +1,7 @@
 import { FC, useEffect } from 'react';
 
 import Nav from '../Nav';
-import styles from './style.module.css';
+import style from './style.module.css';
 
 const Header: FC<{}> = () => {
   useEffect(() => {
@@ -24,10 +24,10 @@ const Header: FC<{}> = () => {
     window.dispatchEvent(new CustomEvent('updateDarkMode'));
   }
 
-  return <header className="site__header" id="header">
-    <div className="site__header__inner container">
+  return <header className={style.header} id="header">
+    <div className={`${style['header__inner']} contain-width`}>
       <Nav onDarkModeToggle={toggleDarkMode} />
-      <div className="site__header__logo has-color"></div>
+      <div className={`${style['header__logo']} has-color`}></div>
     </div>
   </header>;
 };

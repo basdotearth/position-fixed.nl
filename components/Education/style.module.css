@@ -1,0 +1,17 @@
+.education {
+  --gap: calc(0.5 * var(--grid-gap));
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 calc(-1 * var(--gap));
+}
+
+.education > div {
+  flex: calc(50% - var(--grid-gap)) 0 0;
+  margin: 0 var(--gap) var(--grid-gap);
+}
+
+@media screen and (max-width:600px) {
+  .education > div {
+    flex: 100% 0 0
+  }
+}
