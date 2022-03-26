@@ -41,7 +41,7 @@ const ContentProvider: FC<{ data: ContentProviderProps }> = ({
       personal: data.projects.filter(i => !i.consultancy),
       staticTexts: data.staticTexts,
     });
-  });
+  }, []);
 
   return <ContentContext.Provider value={contextData}>
     { children }
