@@ -1,7 +1,11 @@
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { INLINES } from '@contentful/rich-text-types';
 
-import { IStaticTextsFields } from '../@types/generated/contentful';
+import {
+  IEducationFields,
+  IProjectFields,
+  IStaticTextsFields,
+} from '../@types/generated/contentful';
 
 export const shortDate = (val: string): string => {
   const date = new Date(val);
@@ -14,6 +18,15 @@ export const shortDate = (val: string): string => {
   const year = String(date.getFullYear()).slice(2);
   return `${months[date.getMonth()]} '${year}`;
 };
+
+export const dateSorting = (
+  itemA: IEducationFields | IProjectFields,
+  itemB: IEducationFields | IProjectFields,
+): number => {
+  const dateA = new Date(itemA.start);
+  const dateB = new Date(itemB.start);
+  return dateB.valueOf() - dateA.valueOf();
+}
 
 export const printStaticText = (
   src: IStaticTextsFields[],

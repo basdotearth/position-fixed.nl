@@ -1,8 +1,8 @@
 import { FC, CSSProperties } from 'react';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
+import { dateSorting, shortDate } from '../../support';
 import type { IProjectFields } from '../../@types/generated/contentful';
-import { shortDate } from '../../support';
 
 interface CustomStyle extends CSSProperties {
   '--image': string;
@@ -19,7 +19,7 @@ const Projects: FC<ProjectsProps> = ({
 }) => (
   <section className="site__section">
     <h3 className="site__section__heading has-color">{title}</h3>
-    {projects.map((item, index) => {
+    {projects.sort(dateSorting).map((item, index) => {
       const dateNotation = [shortDate(item.start)];
       if (item.end) {
         dateNotation.push('&mdash;', shortDate(item.end));

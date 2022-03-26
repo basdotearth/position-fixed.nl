@@ -1,6 +1,7 @@
 import { FC } from 'react';
 
-import { IEducationFields } from '../../@types/generated/contentful';
+import { dateSorting } from '../../support';
+import type { IEducationFields } from '../../@types/generated/contentful';
 
 const Education: FC<{ education: IEducationFields[] }> = ({
   education,
@@ -8,7 +9,7 @@ const Education: FC<{ education: IEducationFields[] }> = ({
   <section className="site__section">
     <h3 className="site__section__heading has-color">Education</h3>
     <div className="site__section__education">
-      {education.map((item, index) => { 
+      {education.sort(dateSorting).map((item, index) => { 
         const dateNotation: string[] = [
           new Date(item.start).getFullYear().toString(),
         ];
