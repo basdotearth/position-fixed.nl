@@ -2,7 +2,13 @@ import { FC } from 'react';
 
 import style from './style.module.css';
 
-const Nav: FC<{ onDarkModeToggle: VoidFunction }> = ({
+interface NavProps {
+  darkModeActive: boolean;
+  onDarkModeToggle: VoidFunction;
+}
+
+const Nav: FC<NavProps> = ({
+  darkModeActive,
   onDarkModeToggle,
 }) => (
   <nav className={style.nav}>
@@ -30,7 +36,9 @@ const Nav: FC<{ onDarkModeToggle: VoidFunction }> = ({
       ))
       */}
       <li>
-        <button onClick={onDarkModeToggle}>Dark Mode</button>
+        <button onClick={onDarkModeToggle}>
+          {darkModeActive ? 'Light' : 'Dark'} Mode
+        </button>
       </li>
       <li>
         <a
