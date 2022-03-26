@@ -14,6 +14,8 @@ const Header: FC<{}> = () => {
     };
 
     window.addEventListener('updateDarkMode', updateDarkModeState);
+    updateDarkModeState();
+
     return () => {
       window.removeEventListener('updateDarkMode', updateDarkModeState);
     };
