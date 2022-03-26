@@ -35,8 +35,7 @@ const Projects: FC<ProjectsProps> = ({
           { item.logo && 
           <div
             className={style.project__image}
-            style={{'--image': `url('${item.logo?.fields.file.url}');`} as CustomStyle}>
-              {item.logo?.fields.file.url}
+            style={{ backgroundImage: `url('${item.logo?.fields.file.url}')` }}>
           </div>
           }
           <h5>{ item.company }</h5>
