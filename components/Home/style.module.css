@@ -1,0 +1,17 @@
+.home {
+  width: 100%;
+  position: relative;
+  padding: 7.5rem 3.75rem;
+}
+
+.home:before {
+  position: absolute;
+  top: 3rem;
+  left: 7rem;
+  display: block;
+  content: "\02A58";
+  font-size: 3rem;
+  color: var(--grey);
+  transform: scaleX(-1);
+  opacity: .25;
+}

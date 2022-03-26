@@ -1,12 +1,11 @@
-import { FC } from 'react';
+import { FC, useContext } from 'react';
 
 import { dateSorting } from '../../support';
-import type { IEducationFields } from '../../@types/generated/contentful';
+import { ContentContext } from 'providers/content.provider';
 
-const Education: FC<{ education: IEducationFields[] }> = ({
-  education,
-}) => (
-  <section className="site__section">
+const Education: FC<{}> = () => {
+  const { education } = useContext(ContentContext);
+  return <section className="site__section">
     <h3 className="site__section__heading has-color">Education</h3>
     <div className="site__section__education">
       {education.sort(dateSorting).map((item, index) => { 
@@ -27,6 +26,6 @@ const Education: FC<{ education: IEducationFields[] }> = ({
       })}
     </div>
   </section>
-);
+};
 
 export default Education;

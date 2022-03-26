@@ -3,28 +3,25 @@ import Head from 'next/head';
 import { GetServerSideProps } from 'next';
 import { createClient } from 'contentful';
 
-import Education from '@components/Education';
 import Footer from '@components/Footer';
 import Header from '@components/Header';
-import Projects from '@components/Projects';
+import Home from '@components/Home';
 
-import { printStaticText } from '../support';
 import metaTags from '../support/metaTags';
 import type {
   IEducationFields,
   IProjectFields,
   IStaticTextsFields,
 } from '../@types/generated/contentful';
+import ContentProvider from 'providers/content.provider';
 
-
-interface HomeProps {
-  consultancy: IProjectFields[];
+interface SiteProps {
   education: IEducationFields[];
-  personal: IProjectFields[];
+  projects: IProjectFields[];
   staticTexts: IStaticTextsFields[];
 }
 
-const getContentfulData = async (): Promise<HomeProps> => {
+const getContentfulData = async (): Promise<SiteProps> => {
   const client = createClient({
     space: process.env.CONTENTFUL_SPACE_ID as string,
     accessToken: process.env.CONTENTFUL_ACCESS_TOKEN as string,
@@ -37,38 +34,20 @@ const getContentfulData = async (): Promise<HomeProps> => {
   ]);
 
   return {
-    consultancy: projects.items.map(i => i.fields).filter(i => i.consultancy),
     education: education.items.map(i => i.fields),
-    personal: projects.items.map(i => i.fields).filter(i => !i.consultancy),
+    projects: projects.items.map(i => i.fields),
     staticTexts: staticTexts.items.map(i => i.fields)
   };
 }
 
-export const getServerSideProps: GetServerSideProps<HomeProps> = async () => {
-  const {
-    consultancy,
-    education,
-    personal,
-    staticTexts,
-  } = await getContentfulData();
-
+export const getServerSideProps: GetServerSideProps<SiteProps> = async () => {
   return {
-    props: {
-      consultancy,
-      education,
-      personal,
-      staticTexts,
-    },
+    props: await getContentfulData(),
   };
 };
 
-const Home: FC<HomeProps> = ({
-  consultancy,
-  education,
-  personal,
-  staticTexts,
-}) => {
-  return (
+const Site: FC<SiteProps> = (props) => {
+  return <ContentProvider data={props}>
     <div className="site">
       <Head>
         <base href="/" />
@@ -85,21 +64,10 @@ const Home: FC<HomeProps> = ({
         <title>Position Fixed</title>
       </Head>
       <Header />
-      <main className="site__main container">
-        {printStaticText(staticTexts, 'header-text')}
-
-        <Projects title="Consultancy" projects={consultancy} />
-        <Education education={education} />
-        <Projects title="Personal" projects={personal} />
-
-        <section className="site__section">
-          <h3 className="site__section__heading has-color">Hobbies &amp; Personal Life</h3>
-          {printStaticText(staticTexts, 'hobbies')}
-        </section>
-      </main>
+      <Home />
       <Footer />
     </div>
-  )
+  </ContentProvider>
 };
 
-export default Home;
+export default Site;

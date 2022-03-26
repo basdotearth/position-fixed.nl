@@ -1,23 +1,27 @@
-import { FC, CSSProperties } from 'react';
+import { FC, CSSProperties, useContext } from 'react';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
 import { dateSorting, shortDate } from '../../support';
 import type { IProjectFields } from '../../@types/generated/contentful';
+import { ContentContext } from 'providers/content.provider';
 
 interface CustomStyle extends CSSProperties {
   '--image': string;
 }
 
 interface ProjectsProps {
-  projects: IProjectFields[];
+  filter: 'consultancy' | 'personal';
   title: string;
 }
 
 const Projects: FC<ProjectsProps> = ({
-  projects,
+  filter,
   title,
-}) => (
-  <section className="site__section">
+}) => {
+  const data = useContext(ContentContext);
+  const projects = data[filter];
+
+  return <section className="site__section">
     <h3 className="site__section__heading has-color">{title}</h3>
     {projects.sort(dateSorting).map((item, index) => {
       const dateNotation = [shortDate(item.start)];
@@ -50,6 +54,6 @@ const Projects: FC<ProjectsProps> = ({
       </div>
         })}
   </section>
-);
+};
 
 export default Projects;
