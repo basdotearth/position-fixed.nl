@@ -18,6 +18,7 @@ html {
 :root {
   --base: 18px;
   --width: 53.333rem;
+  --space: 3.75rem;
   --font-heading: "Sedgwick Ave", serif;
   --font-body: "Assistant", sans-serif;
   --font-weight: 300;
@@ -134,7 +135,7 @@ a:hover:before {
   display: flex;
   width: calc(6rem + var(--width));
   max-width: 90vw;
-  margin: 0 auto 3.75rem;
+  margin: 0 auto var(--space);
   flex-direction: column;
   background-color: var(--bg);
   background-image: linear-gradient(
@@ -150,7 +151,7 @@ a:hover:before {
 
 .site__section {
   position: relative;
-  margin-top: 7.5rem;
+  margin-top: calc(2 * var(--space));
 }
 
 .site__section:not(:last-of-type)::after,
@@ -158,10 +159,10 @@ a:hover:before {
   --width: 53.333rem;
   --direction: to top;
   position: absolute;
-  top: calc(100% + 3.75rem);
+  top: calc(100% + var(--space));
   left: 50%;
   display: block;
-  height: 3.75rem;
+  height: var(--space);
   width: calc((6rem + var(--width)) / 2);
   max-width: 90vw;
   content: '';
@@ -175,7 +176,7 @@ a:hover:before {
 
 
 .site__section:not(:first-of-type)::before {
-  top: -3.75rem;
+  top: calc(-1 * var(--space));
   right: 50%;
   left: auto;
   background-image: linear-gradient(
