@@ -1,7 +1,7 @@
 
 .nav {
   position: absolute;
-  top: 0.5rem;
+  top: 1rem;
   right: 0;
 }
 
@@ -21,22 +21,24 @@
 .nav button,
 .nav .button {
   padding: 0.5rem;
-  border: 1px solid var(--bg);
-  background-color: var(--fg);
-  font-family: var(--font-body);
+  border: none;
+  background-color: transparent;
+  font-family: var(--font-heading);
   color: var(--bg);
-  text-decoration: none;
-  font-size: 0.8rem;
-  line-height: 0.8rem;
-  border-radius: 3px;
-  opacity: 0.6;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  font-size: 1rem;
+  line-height: 1rem;
+  opacity: 0.8;
   transition: opacity 200ms ease;
+  transform: rotate(-2deg);
 }
 
 .nav .button:hover,
 .nav button:hover,
 .nav button:active {
-  opacity: 0.9;
+  opacity: 1;
+  text-decoration-color: currentColor;
   transition: opacity 200ms ease;
   cursor: pointer;
 }

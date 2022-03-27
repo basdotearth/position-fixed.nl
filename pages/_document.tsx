@@ -7,10 +7,10 @@ const Document: FC<{}> = () => {
       <Head>
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-      <link href="https://fonts.googleapis.com/css2?family=Muli:wght@300;400&family=Merriweather:wght@700&display=swap"
+      <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400&family=Sedgwick+Ave:wght@400&display=swap"
     rel="stylesheet"></link>
       </Head>
-      <body>
+      <body className='has-bg'>
         <Main />
         <NextScript />
       </body>

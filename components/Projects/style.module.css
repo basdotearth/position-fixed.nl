@@ -20,7 +20,8 @@
   width: 1ch;
   height: 2px;
   background-color: var(--color, var(--blue));
-  content: ""
+  content: "";
+  transform: rotate(-2deg);
 }
 
 .project__meta {
@@ -50,8 +51,9 @@
 .project__tags li:before {
   margin: 0 .5rem 0 0;
   display: inline-block;
-  content: "\00BB";
-  color: var(--grey)
+  content: "\003E";
+  font-family: var(--font-heading);
+  color: var(--grey);
 }
 
 

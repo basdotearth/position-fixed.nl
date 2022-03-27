@@ -1,8 +1,8 @@
 import { FC, useEffect, useState } from 'react';
 
-import useCustomColor from 'hooks/useCustomColor';
 import Nav from '../Nav';
 import style from './style.module.css';
+import { classMap } from 'support';
 
 const Header: FC<{}> = () => {
   const [darkModeActive, setDarkModeActive] = useState<boolean>(false);
@@ -30,10 +30,9 @@ const Header: FC<{}> = () => {
     window.dispatchEvent(new CustomEvent('updateDarkMode'));
   }
 
-  return <header className={style.header} id="header">
-    <div className={`${style.header__inner} contain-width`}>
+  return <header className={classMap([style.header, 'has-bg'])}>
+    <div className={classMap([style.header__inner, 'contain-width'])}>
       <Nav darkModeActive={darkModeActive} onDarkModeToggle={toggleDarkMode} />
-      <div className={useCustomColor(style.header__logo)}></div>
     </div>
   </header>;
 };
