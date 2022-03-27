@@ -35,8 +35,9 @@ const Static: FC<StaticProps> = ({ text, title }) => {
   };
 
   const { staticTexts } = useContext(ContentContext);
+  const titleClass = useCustomColor('site__section__heading');
   return <section className="site__section">
-    { title && <h3 className={useCustomColor('site__section__heading')}>
+    { title && <h3 className={titleClass}>
       { title }
     </h3>}
     <div className={style['static-text']}>
