@@ -24,7 +24,7 @@ const Nav: FC<NavProps> = ({
         <a
           className={useCustomColor([style.button, 'skip-link-styles'])}
           role="button"
-          href="/assets/Bas%20Klinkhamer%20-%20CV.pdf"
+          href="/Bas%20Klinkhamer%20-%20CV.pdf"
           download="Bas Klinkhamer - CV.pdf">
           Download CV
         </a>
