@@ -11,7 +11,7 @@ const Home: FC<{}> = () => {
     <Static text="header-text" />
     <Projects title="Consultancy" filter="consultancy" />
     <Education />
-    <Projects title="Personal" filter="personal" />
+    <Projects title="Personal &amp; Side-projects" filter="personal" />
     <Static title="Hobbies &amp; Personal Life" text="hobbies" />
   </main>;
 };

@@ -5,6 +5,10 @@
   margin: 0 calc(-1 * var(--gap));
 }
 
+.education h5 {
+  margin: 0 0 0.2rem;
+}
+
 .education > div {
   flex: calc(50% - var(--grid-gap)) 0 0;
   margin: 0 var(--gap) var(--grid-gap);

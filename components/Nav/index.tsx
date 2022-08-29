@@ -1,3 +1,4 @@
+import useCustomColor from 'hooks/useCustomColor';
 import { FC } from 'react';
 
 import style from './style.module.css';
@@ -13,36 +14,15 @@ const Nav: FC<NavProps> = ({
 }) => (
   <nav className={style.nav}>
     <ul role="list">
-      {/*
-
-      OLD NAV PORTED FROM 11ty VERSION
-
       <li>
-        <a 
-          aria-current={ currentUrl === page.url && 'page'}
-          href="/">
-          Home
-        </a>
-      </li>
-
-      blogPages.map(page => (
-        <li>
-          <a
-            aria-current={ currentUrl === page.url && 'page'}
-            href={ page.url }>
-            { page.data.title }
-          </a>
-        </li>
-      ))
-      */}
-      <li>
-        <button onClick={onDarkModeToggle}>
+        <button
+          className={useCustomColor('')} onClick={onDarkModeToggle}>
           {darkModeActive ? 'Light' : 'Dark'} Mode
         </button>
       </li>
       <li>
         <a
-          className={`${style.button} skip-link-styles`}
+          className={useCustomColor([style.button, 'skip-link-styles'])}
           role="button"
           href="/assets/Bas%20Klinkhamer%20-%20CV.pdf"
           download="Bas Klinkhamer - CV.pdf">

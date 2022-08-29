@@ -61,7 +61,7 @@ const Site: FC<SiteProps> = (props) => {
             property={tag.property}
             content={tag.content} />
         ))}
-        <title>Position Fixed</title>
+        <title>Bas Klinkhamer • Frontend Developer • Position Fixed</title>
       </Head>
       <Header />
       <Home />

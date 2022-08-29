@@ -1,8 +1,8 @@
-
 .nav {
+  display: none;
   position: absolute;
   top: 1rem;
-  right: 0;
+  right: 1rem;
 }
 
 .nav ul {
@@ -21,24 +21,24 @@
 .nav button,
 .nav .button {
   padding: 0.5rem;
-  border: none;
-  background-color: transparent;
+  border: unset;
+  border-bottom: 2px solid var(--grey);
+  background-color: unset;
   font-family: var(--font-heading);
-  color: var(--bg);
-  text-decoration: underline;
-  text-decoration-color: transparent;
+  color: var(--fg);
   font-size: 1rem;
   line-height: 1rem;
-  opacity: 0.8;
-  transition: opacity 200ms ease;
-  transform: rotate(-2deg);
 }
 
 .nav .button:hover,
 .nav button:hover,
 .nav button:active {
-  opacity: 1;
-  text-decoration-color: currentColor;
-  transition: opacity 200ms ease;
   cursor: pointer;
+  border-bottom-color: var(--color);
+}
+
+@media screen and (min-width:601px) {
+  .nav {
+    display: block;
+  }
 }

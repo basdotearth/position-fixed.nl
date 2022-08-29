@@ -1,6 +1,6 @@
 .project h5,
 .site__section__education h5 {
-  margin: 0 0 .2rem
+  margin: 0 0 .2rem;
 }
 
 .project ul {
@@ -51,7 +51,7 @@
 .project__tags li:before {
   margin: 0 .5rem 0 0;
   display: inline-block;
-  content: "\003E";
+  content: "\2B62";
   font-family: var(--font-heading);
   color: var(--grey);
 }

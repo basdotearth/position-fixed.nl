@@ -1,5 +1,7 @@
 .home {
   width: 100%;
   position: relative;
-  padding: 0 var(--space) calc(var(--space) * 2);
+  margin-top: calc(var(--space) * 2);
+  margin-bottom: calc(var(--space) * 2);
+  padding: 0 var(--space);
 }

@@ -31,9 +31,8 @@ const Header: FC<{}> = () => {
   }
 
   return <header className={classMap([style.header, 'has-bg'])}>
-    <div className={classMap([style.header__inner, 'contain-width'])}>
-      <Nav darkModeActive={darkModeActive} onDarkModeToggle={toggleDarkMode} />
-    </div>
+    <img className={style.header__photo} src="/postcard.jpg" alt="A postcard with my person on it" />
+    <Nav darkModeActive={darkModeActive} onDarkModeToggle={toggleDarkMode} />
   </header>;
 };
 

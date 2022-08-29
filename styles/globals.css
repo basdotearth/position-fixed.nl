@@ -16,13 +16,13 @@ html {
 }
 
 :root {
-  --base: 18px;
+  --base: 16px;
   --width: 53.333rem;
   --space: 3.75rem;
-  --font-heading: "Sedgwick Ave", serif;
-  --font-body: "Assistant", sans-serif;
+  --font-heading: "Forum", serif;
+  --font-body: "Mulish", sans-serif;
   --font-weight: 300;
-  --font-bold: 700;
+  --font-bold: 600;
   --grid-gap: 1.5rem;
   --white: #fff;
   --bg: var(--white);
@@ -41,7 +41,12 @@ body {
   font-weight: var(--font-weight);
   color: var(--fg);
   line-height: 1.65;
-  background-color: var(--bg);
+  background-image:
+    linear-gradient(15deg, rgb(4 142 151 / 80%) 0%,rgb(16 154 161 / 80%) 10%, rgb(180 208 212 / 80%) 100%),
+    url('/bg.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
   overflow: auto;
   -webkit-overflow-scrolling: touch;
 }
@@ -53,9 +58,8 @@ p {
 h1, h2, h3, h4, h5 {
   margin: 2.75rem 0 1.05rem;
   font-family: var(--font-heading);
-  font-weight: var(--font-weight);
+  font-weight: 400;
   line-height: 1.15;
-  transform: rotate(-1deg);
 }
 
 h1 {
@@ -133,61 +137,19 @@ a:hover:before {
 
 .site {
   display: flex;
-  width: calc(6rem + var(--width));
+  width: calc(3rem + var(--width));
   max-width: 90vw;
-  margin: 0 auto var(--space);
+  margin: var(--space) auto;
   flex-direction: column;
   background-color: var(--bg);
-  background-image: linear-gradient(
-    to right, 
-    rgba(0 0 0 / 0%) 25%,
-    rgba(0 0 0 / 2.5%) 50%,
-    rgba(0 0 0 / 0%) 50%,
-    rgba(0 0 0 / 10%) 100%
-  );
   background-size: 100% auto;
   background-repeat: repeat;
+  box-shadow: 0 1rem 1rem -1rem rgba(0 0 0 / 15%);
 }
 
 .site__section {
   position: relative;
   margin-top: calc(2 * var(--space));
-}
-
-.site__section:not(:last-of-type)::after,
-.site__section:not(:first-of-type)::before {
-  --width: 53.333rem;
-  --direction: to top;
-  position: absolute;
-  top: calc(100% + var(--space));
-  left: 50%;
-  display: block;
-  height: var(--space);
-  width: calc((6rem + var(--width)) / 2);
-  max-width: 90vw;
-  content: '';
-  background-image: linear-gradient(
-    var(--direction), 
-    rgba(0 0 0 / 0%) 0%,
-    rgba(0 0 0 / 2.5%) 100%
-  );
-  background-size: cover;
-}
-
-
-.site__section:not(:first-of-type)::before {
-  top: calc(-1 * var(--space));
-  right: 50%;
-  left: auto;
-  background-image: linear-gradient(
-    var(--direction), 
-    rgba(0 0 0 / 0%) 0%,
-    rgba(0 0 0 / 1%) 100%
-  );
-}
-
-.site__section::after {
-  --direction: to bottom;
 }
 
 .site__section__heading {
@@ -203,12 +165,4 @@ a:hover:before {
   height: 2px;
   background-color: var(--color, var(--blue));
   content: "";
-  transform: rotate(-2deg);
-}
-
-.has-bg {
-  background-image: url('/bg.jpg');
-  background-size: cover;
-  background-position: center center;
-  background-attachment: fixed;
 }
